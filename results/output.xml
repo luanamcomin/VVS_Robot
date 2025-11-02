@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3.2 (Python 3.13.9 on win32)" generated="2025-11-01T21:33:59.852446" rpa="false" schemaversion="5">
+<suite id="s1" name="E2E Tests" source="C:\Users\Luana\OneDrive\Área de Trabalho\Robot-Senac\tests\e2e_tests.robot">
+<test id="s1-t1" name="Ciclo Ponta A Ponta - OrangeHRM" line="8">
+<kw name="Set Selenium Speed" owner="SeleniumLibrary">
+<arg>0.6 seconds</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" start="2025-11-01T21:34:00.060931" elapsed="0.000211"/>
+</kw>
+<kw name="Open Browser To Login Page" owner="keywords">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-11-01T21:34:00.061819" level="INFO">Opening browser 'chrome' to base url 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-11-01T21:34:00.061641" elapsed="4.011769"/>
+</kw>
+<kw name="Set Selenium Speed" owner="SeleniumLibrary">
+<arg>${SELENIUM_SPEED}</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" start="2025-11-01T21:34:04.073622" elapsed="0.000260"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-11-01T21:34:04.073974" elapsed="0.621233"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>css:input[name="username"]</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-11-01T21:34:04.695404" elapsed="0.610338"/>
+</kw>
+<status status="PASS" start="2025-11-01T21:34:00.061401" elapsed="5.244492"/>
+</kw>
+<kw name="Login With Valid Credentials" owner="keywords">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-11-01T21:34:05.306670" level="INFO">Typing text 'Admin' into text field 'css:input[name="username"]'.</msg>
+<arg>css:input[name="username"]</arg>
+<arg>${USERNAME}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-01T21:34:05.306484" elapsed="1.855197"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-11-01T21:34:07.162137" level="INFO">Typing text 'admin123' into text field 'css:input[name="password"]'.</msg>
+<arg>css:input[name="password"]</arg>
+<arg>${PASSWORD}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-01T21:34:07.161894" elapsed="1.861508"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-11-01T21:34:09.023838" level="INFO">Clicking button 'css:button[type="submit"]'.</msg>
+<arg>css:button[type="submit"]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-01T21:34:09.023619" elapsed="3.059329"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>xpath=//h6[normalize-space()="Dashboard"]</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-11-01T21:34:12.083151" elapsed="1.687540"/>
+</kw>
+<status status="PASS" start="2025-11-01T21:34:05.306244" elapsed="8.464589"/>
+</kw>
+<kw name="Verify On Dashboard" owner="keywords">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>xpath=//h6[normalize-space()="Dashboard"]</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-11-01T21:34:13.771355" elapsed="0.605927"/>
+</kw>
+<status status="PASS" start="2025-11-01T21:34:13.771123" elapsed="0.606294"/>
+</kw>
+<kw name="Take Evidence Screenshot" owner="keywords">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-11-01T21:34:15.164149" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="e2e_dashboard.png"&gt;&lt;img src="e2e_dashboard.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>${name}.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-11-01T21:34:14.377991" elapsed="0.786315"/>
+</kw>
+<arg>e2e_dashboard</arg>
+<status status="PASS" start="2025-11-01T21:34:14.377736" elapsed="0.786697"/>
+</kw>
+<kw name="Go To Add Employee" owner="keywords">
+<kw name="Go To PIM Module" owner="keywords">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-11-01T21:34:15.165338" level="INFO">Clicking element 'xpath=//span[normalize-space()="PIM"]'.</msg>
+<arg>xpath=//span[normalize-space()="PIM"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-01T21:34:15.165180" elapsed="1.794429"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>xpath=//h6[normalize-space()="PIM"]</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-11-01T21:34:16.959816" elapsed="0.609603"/>
+</kw>
+<status status="PASS" start="2025-11-01T21:34:15.165011" elapsed="2.404548"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-11-01T21:34:17.569885" level="INFO">Clicking element 'xpath=//a[normalize-space()="Add Employee"] | //button[.//text()[normalize-space()="Add"]]'.</msg>
+<arg>xpath=//a[normalize-space()="Add Employee"] | //button[.//text()[normalize-space()="Add"]]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-01T21:34:17.569696" elapsed="1.548080"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>xpath=//h6[normalize-space()="Add Employee"]</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-11-01T21:34:19.117980" elapsed="0.609029"/>
+</kw>
+<status status="PASS" start="2025-11-01T21:34:15.164781" elapsed="4.562432"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-11-01T21:34:19.727985" level="INFO">${rand} = 31411</msg>
+<var>${rand}</var>
+<arg>__import__('random').randint(10000, 99999)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-11-01T21:34:19.727618" elapsed="0.000397"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-11-01T21:34:19.728508" level="INFO">${first} = Emp31411</msg>
+<var>${first}</var>
+<arg>Emp${rand}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-11-01T21:34:19.728292" elapsed="0.000244"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-11-01T21:34:19.728849" level="INFO">${last} = Silva</msg>
+<var>${last}</var>
+<arg>Silva</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-11-01T21:34:19.728733" elapsed="0.000139"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-11-01T21:34:19.729407" level="INFO">${fullname} = Emp31411 Silva</msg>
+<var>${fullname}</var>
+<arg>${first} ${last}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-11-01T21:34:19.729220" elapsed="0.000215"/>
+</kw>
+<kw name="Add Employee" owner="keywords">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-11-01T21:34:19.730155" level="INFO">Typing text 'Emp31411' into text field 'css:input[name="firstName"]'.</msg>
+<arg>css:input[name="firstName"]</arg>
+<arg>${first}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-01T21:34:19.729980" elapsed="1.862091"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-11-01T21:34:21.592503" level="INFO">Typing text 'Silva' into text field 'css:input[name="lastName"]'.</msg>
+<arg>css:input[name="lastName"]</arg>
+<arg>${last}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-01T21:34:21.592275" elapsed="1.861348"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-11-01T21:34:23.454042" level="INFO">Clicking button 'css:button[type="submit"]'.</msg>
+<arg>css:button[type="submit"]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-01T21:34:23.453849" elapsed="3.057679"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>xpath=//h6[contains(normalize-space(),"Personal Details")]</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-11-01T21:34:26.511863" elapsed="4.638696"/>
+</kw>
+<arg>${first}</arg>
+<arg>${last}</arg>
+<status status="PASS" start="2025-11-01T21:34:19.729718" elapsed="11.420984"/>
+</kw>
+<kw name="Take Evidence Screenshot" owner="keywords">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-11-01T21:34:31.875521" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="e2e_add_employee.png"&gt;&lt;img src="e2e_add_employee.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>${name}.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-11-01T21:34:31.151292" elapsed="0.724356"/>
+</kw>
+<arg>e2e_add_employee</arg>
+<status status="PASS" start="2025-11-01T21:34:31.151023" elapsed="0.724718"/>
+</kw>
+<kw name="Go To PIM Module" owner="keywords">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-11-01T21:34:31.876585" level="INFO">Clicking element 'xpath=//span[normalize-space()="PIM"]'.</msg>
+<arg>xpath=//span[normalize-space()="PIM"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-01T21:34:31.876425" elapsed="1.749735"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>xpath=//h6[normalize-space()="PIM"]</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-11-01T21:34:33.626363" elapsed="0.606754"/>
+</kw>
+<status status="PASS" start="2025-11-01T21:34:31.876153" elapsed="2.357104"/>
+</kw>
+<kw name="Search Employee By Name" owner="keywords">
+<kw name="Go To PIM Module" owner="keywords">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-11-01T21:34:34.234686" level="INFO">Clicking element 'xpath=//span[normalize-space()="PIM"]'.</msg>
+<arg>xpath=//span[normalize-space()="PIM"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-01T21:34:34.234544" elapsed="1.738665"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>xpath=//h6[normalize-space()="PIM"]</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-11-01T21:34:35.973416" elapsed="0.609101"/>
+</kw>
+<status status="PASS" start="2025-11-01T21:34:34.234369" elapsed="2.348283"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>xpath=//h6[normalize-space()="PIM"]</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-11-01T21:34:36.582779" elapsed="0.606161"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-11-01T21:34:37.189369" level="INFO">Clicking element 'xpath=(//label[normalize-space()="Employee Name"]/following::input)[1]'.</msg>
+<arg>xpath=(//label[normalize-space()="Employee Name"]/following::input)[1]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-01T21:34:37.189155" elapsed="1.250283"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-11-01T21:34:38.439880" level="INFO">Typing text 'Emp31411 Silva' into text field 'xpath=(//label[normalize-space()="Employee Name"]/following::input)[1]'.</msg>
+<arg>xpath=(//label[normalize-space()="Employee Name"]/following::input)[1]</arg>
+<arg>${name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-01T21:34:38.439641" elapsed="1.859452"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-11-01T21:34:40.799709" level="INFO">Slept 500 milliseconds.</msg>
+<arg>0.5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-11-01T21:34:40.299297" elapsed="0.500526"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-11-01T21:34:40.800167" level="INFO">Clicking button 'xpath=//button[.//text()[normalize-space()="Search"]]'.</msg>
+<arg>xpath=//button[.//text()[normalize-space()="Search"]]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-01T21:34:40.799980" elapsed="3.067495"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>css:div.oxd-table-body</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-11-01T21:34:43.867674" elapsed="0.608392"/>
+</kw>
+<arg>${fullname}</arg>
+<status status="PASS" start="2025-11-01T21:34:34.233677" elapsed="10.242515"/>
+</kw>
+<kw name="Assert Results Table Not Empty" owner="keywords">
+<kw name="Get Element Count" owner="SeleniumLibrary">
+<msg time="2025-11-01T21:34:45.085833" level="INFO">${count} = 1</msg>
+<var>${count}</var>
+<arg>xpath=//div[contains(@class,'oxd-table-body')]/div[contains(@class,'oxd-table-card')]</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<status status="PASS" start="2025-11-01T21:34:44.476769" elapsed="0.609124"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${count} &gt; 0</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2025-11-01T21:34:45.086082" elapsed="0.000397"/>
+</kw>
+<status status="PASS" start="2025-11-01T21:34:44.476538" elapsed="0.610004"/>
+</kw>
+<kw name="Take Evidence Screenshot" owner="keywords">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-11-01T21:34:45.803899" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="e2e_search_employee.png"&gt;&lt;img src="e2e_search_employee.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>${name}.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-11-01T21:34:45.087062" elapsed="0.717022"/>
+</kw>
+<arg>e2e_search_employee</arg>
+<status status="PASS" start="2025-11-01T21:34:45.086852" elapsed="0.717335"/>
+</kw>
+<kw name="Perform Logout" owner="keywords">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-11-01T21:34:45.804876" level="INFO">Clicking element 'css=span.oxd-userdropdown-tab'.</msg>
+<arg>css=span.oxd-userdropdown-tab</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-01T21:34:45.804729" elapsed="1.245033"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-11-01T21:34:47.050175" level="INFO">Clicking element 'xpath=//a[normalize-space()="Logout"]'.</msg>
+<arg>xpath=//a[normalize-space()="Logout"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-01T21:34:47.049976" elapsed="1.762050"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>css:input[name="username"]</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-11-01T21:34:48.812241" elapsed="0.606547"/>
+</kw>
+<status status="PASS" start="2025-11-01T21:34:45.804508" elapsed="3.614408"/>
+</kw>
+<kw name="Take Evidence Screenshot" owner="keywords">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-11-01T21:34:50.115071" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="e2e_logout.png"&gt;&lt;img src="e2e_logout.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>${name}.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-11-01T21:34:49.419561" elapsed="0.695629"/>
+</kw>
+<arg>e2e_logout</arg>
+<status status="PASS" start="2025-11-01T21:34:49.419309" elapsed="0.695972"/>
+</kw>
+<kw name="Close Browser Session" owner="keywords">
+<kw name="Close All Browsers" owner="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2025-11-01T21:34:50.115922" elapsed="2.694386"/>
+</kw>
+<status status="PASS" start="2025-11-01T21:34:50.115670" elapsed="2.694758"/>
+</kw>
+<doc>Fluxo completo: Login -&gt; Dashboard -&gt; Adicionar Funcionário -&gt; Buscar Funcionário -&gt; Logout</doc>
+<status status="PASS" start="2025-11-01T21:34:00.059978" elapsed="52.750705"/>
+</test>
+<status status="PASS" start="2025-11-01T21:33:59.854088" elapsed="52.957089"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="E2E Tests" id="s1" pass="1" fail="0" skip="0">E2E Tests</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
