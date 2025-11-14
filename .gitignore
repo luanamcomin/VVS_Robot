@@ -1,0 +1,29 @@
+# Robot Framework output files
+results/
+output.xml
+log.html
+report.html
+*.log
+*.xunit.xml
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.csv
+*.db
+*.sqlite3
+
+# Python cache and virtual environment
+__pycache__/
+*.py[cod]
+*$py.class
+.env
+venv/
+env/
+
+# IDE specific files
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
