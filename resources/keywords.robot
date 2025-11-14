@@ -29,11 +29,27 @@ Go To Add Employee
     Wait Until Page Contains Element    xpath=//h6[normalize-space()="Add Employee"]    10s
 
 Add Employee
-    [Arguments]    ${first}    ${last}
-    Input Text    css:input[name="firstName"]    ${first}
-    Input Text    css:input[name="lastName"]     ${last}
-    Click Button   css:button[type="submit"]
-    Wait Until Page Contains Element    xpath=//h6[contains(normalize-space(),"Personal Details")]    10s
+    [Documentation]    Adiciona um novo funcionário com nome, sobrenome e um ID aleatório
+    ...    
+    [Arguments]    ${first}=${EMPLOYEE_FIRST_NAME}    ${last}=${EMPLOYEE_LAST_NAME}    ${id}=${RANDOM_EMPLOYEE_ID}
+    
+    # Gera um ID aleatório de 5 dígitos se não existir
+    Run Keyword If    '${RANDOM_EMPLOYEE_ID}' == '${EMPTY}'
+    ...    Generate Random Employee ID
+    
+    # Força a limpeza do campo de ID (tentativa adicional)
+    Press Keys    ${INPUT_EMPLOYEE_ID}    BACKSPACE    BACKSPACE    BACKSPACE    BACKSPACE    BACKSPACE
+    Sleep    0.5s  # Pequena pausa para garantir que a limpeza seja processada
+    
+    # Preenche os dados básicos do funcionário
+    Input Text    ${INPUT_FIRST_NAME}    ${first}
+    Input Text    ${INPUT_LAST_NAME}     ${last}
+    Input Text    ${INPUT_EMPLOYEE_ID}    ${RANDOM_EMPLOYEE_ID}
+    
+    # Submete o formulário e verifica se foi bem sucedido
+    Click Button    ${BUTTON_SUBMIT}
+    Wait Until Page Contains Element    xpath=//h6[contains(normalize-space(),"Personal Details")]    10s    
+    ...    error=Não foi possível adicionar o funcionário. Página de detalhes não carregou.
 
 Search Employee By Name
     [Arguments]    ${name}
@@ -57,6 +73,11 @@ Perform Logout
 Take Evidence Screenshot
     [Arguments]    ${name}
     Capture Page Screenshot    ${name}.png
+
+Generate Random Employee ID
+    [Documentation]    Gera um ID aleatório de 5 dígitos e armazena em ${RANDOM_EMPLOYEE_ID}
+    ${RANDOM_EMPLOYEE_ID}=    Evaluate    str(__import__('random').randint(10000, 99999))
+    Set Global Variable    ${RANDOM_EMPLOYEE_ID}
 
 Close Browser Session
     Close All Browsers

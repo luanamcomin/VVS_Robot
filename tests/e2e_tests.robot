@@ -14,11 +14,9 @@ Ciclo Ponta A Ponta - OrangeHRM
     Take Evidence Screenshot    e2e_dashboard
 
     Go To Add Employee
-    ${rand}=    Evaluate    __import__('random').randint(10000, 99999)
-    ${first}=   Set Variable    Emp${rand}
-    ${last}=    Set Variable    Silva
-    ${fullname}=    Set Variable    ${first} ${last}
-    Add Employee    ${first}    ${last}
+    ${rand}=    Evaluate    __import__('random').randint(1000, 9999)
+    ${fullname}=    Set Variable    ${EMPLOYEE_FIRST_NAME} ${rand} ${EMPLOYEE_LAST_NAME} 
+    Add Employee    ${EMPLOYEE_FIRST_NAME} ${rand}    ${EMPLOYEE_LAST_NAME}
     Take Evidence Screenshot    e2e_add_employee
 
     Go To PIM Module
